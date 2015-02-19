@@ -1,0 +1,106 @@
+/* Empty. Add your own CSS if you like */
+.row + .row {
+    margin-top: -0px;
+    padding-top: 0;
+}
+
+.has-header.dashboard {
+    margin-top: 44px;
+}
+
+.bar.bar-header.bar-positive {
+    margin-top: -62px;
+}
+
+.menu-icon {
+    background-color: #53bf6b !important;
+    height: 44px;
+    border-radius: 0px !important;
+}
+
+.bar.bar-positive {
+    background-color: rgb(255,255,255);
+    border: none !important;
+    padding: 0 !important;
+}
+
+.title {
+    color: black !important;
+}
+
+ion-content {
+    background-image: url(../img/footer_lodyas.png);
+}
+
+.img-banner {
+    margin-left: -1px;
+    max-height: 300px;
+    width: 100%;
+}
+
+.has-header {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.banner {
+    margin-top: 60px;
+    background-color: white;
+}
+
+.title-movie {
+    text-align: center;
+    color: black;
+}
+
+.no-padder {
+    padding: 0px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.movie-description {
+    padding: 15px;
+    text-align: justify;
+}
+
+.movie-info-banner {
+    padding-top: 15px;
+}
+
+.movies-content {
+    margin-top: 50px !important;
+    margin-left: 5px !important;
+}
+
+.img-gadget {
+    max-height: 208px;
+    width: 100%;
+}
+
+.gadget-content {
+    height: 150px;
+}
+
+
+    .gadget-content:nth-child(1) {
+        background: #004062;
+    }
+
+    .gadget-content:nth-child(2) {
+        background: #004062;
+    }
+
+    .gadget-content:nth-child(3) {
+        background: #00a4ae;
+    }
+
+.gadget-link {
+    background: #58cb7e;
+    height: 60px;
+}
+
+    .gadget-link:hover {
+        background: #465a5a;
+    }
