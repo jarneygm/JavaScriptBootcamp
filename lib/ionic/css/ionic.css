@@ -2234,10 +2234,11 @@ body.grade-b, body.grade-c {
   right: 0;
   bottom: 0;
   left: 0;
-  overflow: hidden;
+  overflow: auto;
   margin-top: -1px;
   width: auto;
-  height: auto; }
+  height: auto; 
+}
 
 .scroll-content-false {
   z-index: 10; }
@@ -6611,12 +6612,6 @@ a.button {
  * up the height of the tallest .col in the same .row.
  */
 .row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
   padding: 5px;
   width: 100%; }
 
