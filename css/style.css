@@ -56,8 +56,8 @@ ion-content {
 
 .no-padder {
     padding: 0px;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
 }
 
 .movie-description {
@@ -84,7 +84,9 @@ ion-content {
 }
 
 .gadget-content {
-    height: 150px;
+    height: 140px;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
 
@@ -103,6 +105,8 @@ ion-content {
 .gadget-link {
     background: #58cb7e;
     height: 60px;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
     .gadget-link:hover {

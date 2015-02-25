@@ -1,35 +1,113 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en" ng-app='Movies'>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=egde"/>
+    <title>AngularJS App</title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <!-- LIBRARIES -->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <!-- STYLE / THEME -->
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdncatalog.com/assets/flat-ui/css/flat-ui.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/skins/default/rs-default.css" rel="stylesheet">
-	  <link href="css/bootstrap.css" rel="stylesheet">
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-        <link href="css/ionic.app.css" rel="stylesheet">
-        -->
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- THIS APP. -->
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-
-    <!-- your app's js -->
-    <script src="js/jquery.js"></script>
-	  <script src="js/bootstrap.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
+    <script src="js/App/Controller/Contorller.js"></script>
+    <script src="js/App/App.js"></script>
 </head>
 
-<body ng-app="starter">
+<body class="container">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
 
-   <ion-nav-view>
-    </ion-nav-view>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#/view1">Home</a></li>
+                <li><a href="#/view2">About</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-sm-2">
+
+        </div><!--/span-->
+        <div class="col-sm-12">
+            <div class="jumbotron">
+                <h1>Web Movies</h1>
+                <p>This is a web application starter template built with AngularJS with an MVC structure</p>
+            </div>
+
+
+            <div class="row-fluid jumbotron" ><!-- VIEWS -->
+                <div class="has-header dashboard">
+                    <div class="row banner no-padder" >
+                        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 no-padder">
+                            <a href="#" class="thumbnail">
+                                <img class="img-banner" src="http://www.arewenotentertained.com/wp-content/uploads/2014/09/the-dark-knight-the-joker.png" />
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-info-banner">
+                            <a href="#">
+                                <h3 class="title-movie">The Dark Knight</h3>
+                                <p class="movie-description">When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row movies-content">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-gadget">
+                            <div class="row no-padder">
+                                <img class="img-gadget" src="http://placehold.it/1024x768" />
+                            </div>
+                            <div class="row gadget-content no-padder">
+                            </div>
+                            <div class="row gadget-link no-padder">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-gadget">
+                            <div class="row no-padder">
+                                <img class="img-gadget" src="http://placehold.it/1024x768" />
+                            </div>
+                            <div class="row gadget-content no-padder">
+                            </div>
+                            <div class="row gadget-link no-padder">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-gadget">
+                            <div class="row no-padder">
+                                <img class="img-gadget" src="http://placehold.it/1024x768" />
+                            </div>
+                            <div class="row gadget-content no-padder">
+                            </div>
+                            <div class="row gadget-link no-padder">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div><!--/span-->
+    </div><!--/row-->
+
+</div><!--/.fluid-container-->
 
 </body>
 </html>
+
