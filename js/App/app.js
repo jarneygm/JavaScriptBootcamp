@@ -1,5 +1,6 @@
 (function(){
 
-    var App = angular.module("Movies",[ "Movies.controller" ])
+    var App = angular.module("Movies",[]);
 
+    MoviesController.init(App);
 })();

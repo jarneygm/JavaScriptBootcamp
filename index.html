@@ -8,6 +8,7 @@
     <!-- LIBRARIES -->
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.js"></script>s
 
     <!-- STYLE / THEME -->
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -16,7 +17,7 @@
 
     <!-- THIS APP. -->
 
-    <script src="js/App/Controller/Contorller.js"></script>
+    <script src="js/App/Controller/MoviesController.js"></script>
     <script src="js/App/App.js"></script>
 </head>
 
@@ -58,8 +59,8 @@
             <div class="row-fluid jumbotron" ><!-- VIEWS -->
                 <div class="has-header dashboard">
                     <div class="row banner no-padder" >
-                        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 no-padder">
-                            <a href="#" class="thumbnail">
+                        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 no-padder" ng-controller="MovController as movie">
+                            <a href="#" class="thumbnail" ng-click="movie.setAlert()">
                                 <img class="img-banner" src="http://www.arewenotentertained.com/wp-content/uploads/2014/09/the-dark-knight-the-joker.png" />
                             </a>
                         </div>
