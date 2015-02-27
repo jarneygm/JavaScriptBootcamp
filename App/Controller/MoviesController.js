@@ -1,25 +1,35 @@
         (function () {
 
-            var config = {
-                api_key : "070d248d81c80314c37280957276a5d4"
+                var apiConfigPath = {};
+                var dashboardList = {
+                    nowPlay:{},
+                    upComing:{}
                 };
-
                 var App = angular.module("Movies.Controller",[]);
 
-                App.controller('LoginApiCrtl',['$http',function($http){
+                    App.controller('LoginApiCtrl',['ConfigApiService',function(ConfigApiService){
+                         ConfigApiService.getConfigPath().then(function(data){
 
-                    $http.get('http://api.themoviedb.org/3/configuration',{params:{api_key:config.api_key}}).success(function(data){
+                             if(data.isValid)
+                                apiConfigPath = data.data;
+                        });
 
-                        console.log(data);
+                     }]);
 
-                    }).error(function(data){
+                    App.controller('MovieListCtrl',['MovieDiscover',function(MovieDiscover){
 
-                        console.log('was an error :' , data);
+                         MovieDiscover.getNowPlaying().then(function(data){
+                             dashboardList.nowPlay = data.data;
+                         });
 
-                    });
+                         MovieDiscover.getUpcomingMovies().then(function(data){
+                             dashboardList.upComing = data.data;
+                         });
 
-                }]);
 
+                         console.log(dashboardList);
+
+                    }]);
 
 
 

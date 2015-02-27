@@ -1,58 +1,32 @@
-    <div class="container-fluid" ng-controller="LoginApiCrtl">
-        <div class="row-fluid">
-            <div class="col-sm-2">
+        <div class="container-fluid" ng-controller="LoginApiCtrl">
+            <div class="row-fluid">
+                <div class="col-sm-2">
 
-            </div><!--/span-->
-            <div class="col-sm-12">
-                <div class="jumbotron">
-                    <h1>Web Movies</h1>
-                    <p>This is a web application starter template built with AngularJS with an MVC structure</p>
+                </div><!--/span-->
+                <div class="col-sm-12">
+                    <div class="jumbotron">
+                        <h1>Web Movies</h1>
+                        <p>This is a web application starter template built with AngularJS with an MVC structure</p>
+                    </div>
+                <div class="has-header dashboard" ng-controller="MovieListCtrl">
+                    <div class="row banner no-padder" >
+                        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 no-padder" >
+                            <a href="#" class="thumbnail" >
+                                <img class="img-banner" src="http://www.arewenotentertained.com/wp-content/uploads/2014/09/the-dark-knight-the-joker.png" />
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-info-banner">
+                            <a href="#">
+                                <h3 class="title-movie">The Dark Knight</h3>
+                                <p class="movie-description">When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row movies-content">
+                            <movie-widget></movie-widget>
+                    </div>
                 </div>
-    <div class="has-header dashboard">
-        <div class="row banner no-padder" >
-            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 no-padder" >
-                <a href="#" class="thumbnail" >
-                    <img class="img-banner" src="http://www.arewenotentertained.com/wp-content/uploads/2014/09/the-dark-knight-the-joker.png" />
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-info-banner">
-                <a href="#">
-                    <h3 class="title-movie">The Dark Knight</h3>
-                    <p class="movie-description">When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.</p>
-                </a>
-            </div>
-        </div>
-        <div class="row movies-content">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-gadget">
-                <div class="row no-padder">
-                    <img class="img-gadget" src="http://placehold.it/1024x768" />
-                </div>
-                <div class="row gadget-content no-padder">
-                </div>
-                <div class="row gadget-link no-padder">
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-gadget">
-                <div class="row no-padder">
-                    <img class="img-gadget" src="http://placehold.it/1024x768" />
-                </div>
-                <div class="row gadget-content no-padder">
-                </div>
-                <div class="row gadget-link no-padder">
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-gadget">
-                <div class="row no-padder">
-                    <img class="img-gadget" src="http://placehold.it/1024x768" />
-                </div>
-                <div class="row gadget-content no-padder">
-                </div>
-                <div class="row gadget-link no-padder">
-                </div>
-            </div>
-        </div>
-    </div>
-            </div><!--/span-->
-        </div><!--/row-->
+                </div><!--/span-->
+            </div><!--/row-->
 
-    </div><!--/.fluid-container-->
+        </div><!--/.fluid-container-->

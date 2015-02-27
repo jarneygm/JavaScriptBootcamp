@@ -20,6 +20,17 @@
 
     });
 
+    App.directive('movieWidget', function () {
+
+        return {
+
+            restrict :'E',
+            templateUrl:'App/views/moviewidget.html'
+
+        };
+
+    })
+
 
 })();
 
