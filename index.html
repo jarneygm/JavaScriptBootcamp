@@ -1,71 +1,34 @@
-<!DOCTYPE HTML>
-<html lang="en" ng-app='Movies'>
-<head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=egde"/>
-    <title>AngularJS App</title>
+    <!DOCTYPE HTML>
+    <html lang="en" ng-app='Movies'>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=egde"/>
+        <title>AngularJS App</title>
 
-    <!-- LIBRARIES -->
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.js"></script>s
+        <!-- LIBRARIES -->
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.js"></script>s
 
-    <!-- STYLE / THEME -->
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://cdncatalog.com/assets/flat-ui/css/flat-ui.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+        <!-- STYLE / THEME -->
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://cdncatalog.com/assets/flat-ui/css/flat-ui.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
 
-    <!-- THIS APP. -->
+        <!-- THIS APP. -->
+        <script src="App/app.js"></script>
+        <script src="App/Controller/MovieViewPartials.js"></script>
+        <script src="App/Controller/MoviesController.js"></script>
 
-    <script src="App/Controller/MoviesController.js"></script>
-    <script src="App/App.js"></script>
-</head>
+    </head>
 
-<body class="container">
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
+    <body class="container">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#/view1">Home</a></li>
-                <li><a href="#/view2">About</a></li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="col-sm-2">
-
-        </div><!--/span-->
-        <div class="col-sm-12">
-            <div class="jumbotron">
-                <h1>Web Movies</h1>
-                <p>This is a web application starter template built with AngularJS with an MVC structure</p>
-            </div>
+    <main-menu><!-- Menu --></main-menu>
+    <main-content><!-- VIEWS --></main-content>
 
 
-            <div class="row-fluid jumbotron" ><!-- VIEWS -->
 
-
-            </div>
-
-        </div><!--/span-->
-    </div><!--/row-->
-
-</div><!--/.fluid-container-->
-
-</body>
-</html>
+    </body>
+    </html>
 

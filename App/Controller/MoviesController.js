@@ -1,33 +1,30 @@
+        (function () {
 
-var MoviesController = (function () {
+            var config = {
+                api_key : "070d248d81c80314c37280957276a5d4"
+                };
 
-    var Main;
-    var config = {
-        api_key : "070d248d81c80314c37280957276a5d4"
-        };
+                var App = angular.module("Movies.Controller",[]);
 
-    // Main Function que recive como parametro un objeto de angular
-    Main = function (angularModule) {
+                App.controller('LoginApiCrtl',['$http',function($http){
 
-        var App = angularModule;
-        App.controller('MovController', function () {
+                    $http.get('http://api.themoviedb.org/3/configuration',{params:{api_key:config.api_key}}).success(function(data){
 
-             this.setAlert = function () {
-                   alert("works the controller");
-             };
-        });
+                        console.log(data);
 
-    };
+                    }).error(function(data){
 
-    var init = function (Ang) {
-        Main(Ang);
+                        console.log('was an error :' , data);
 
-    };
+                    });
 
-    return {
-        init: init
-
-    }
+                }]);
 
 
-})();
+
+
+
+
+
+
+        })();
