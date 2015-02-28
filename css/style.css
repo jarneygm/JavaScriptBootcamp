@@ -75,7 +75,7 @@ ion-content {
 }
 
 .img-gadget {
-    max-height: 208px;
+    max-height: 300px;
     width: 100%;
 }
 
@@ -84,9 +84,12 @@ ion-content {
 }
 
 .gadget-content {
-    height: 140px;
+    height: 20px;
     margin-left: -10px;
     margin-right: -10px;
+    color: #EFB110;
+    font-size: smaller;
+    padding: 4px;
 }
 
 

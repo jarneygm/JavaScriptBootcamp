@@ -1,9 +1,13 @@
-<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-gadget">
+<div class="row movies-content" ng-repeat="movie in movLst.upComingMovies">
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-gadget" >
     <div class="row no-padder">
-        <img class="img-gadget" src="http://placehold.it/1024x768" />
+        <img class="img-gadget"  ng-src="{{movLst.urlImag + movie.backdrop_path}}}" />
     </div>
     <div class="row gadget-content no-padder">
+        {{movie.title}}}
     </div>
     <div class="row gadget-link no-padder">
+        {{movie.release_date}}}
     </div>
+</div>
 </div>
