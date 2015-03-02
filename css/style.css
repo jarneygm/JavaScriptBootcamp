@@ -34,7 +34,7 @@ ion-content {
 
 .img-banner {
     margin-left: -1px;
-    max-height: 300px;
+    height: 370px !important;
     width: 100%;
 }
 
@@ -75,26 +75,28 @@ ion-content {
 }
 
 .img-gadget {
-    max-height: 300px;
+    height: 230px;
     width: 100%;
+    border: solid 3px #ddd;
 }
 
 .movie-gadget{
-	margin-bottom:10px;
+    margin-bottom: 30px;
+    margin-right: 10px;
 }
 
 .gadget-content {
     height: 20px;
     margin-left: -10px;
     margin-right: -10px;
-    color: #EFB110;
+    color: #0D48CD;;
     font-size: smaller;
     padding: 4px;
 }
 
 
-    .gadget-content:nth-child(1) {
-        background: #004062;
+    /*.gadget-content:nth-child(1) {
+        background: #ddd;
     }
 
     .gadget-content:nth-child(2) {
@@ -103,7 +105,7 @@ ion-content {
 
     .gadget-content:nth-child(3) {
         background: #00a4ae;
-    }
+    }*/
 
 .gadget-link {
     background: #58cb7e;
@@ -116,3 +118,13 @@ ion-content {
         background: #465a5a;
     }
 
+.search-model{
+    margin-bottom: 30px;
+    float: none;
+
+}
+.moviesDescription-content{
+
+    margin-top: 60px;
+
+}

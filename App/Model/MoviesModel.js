@@ -54,7 +54,7 @@
                         data:{},
                         errorMsg:''
 
-                }, deferNowPlaying = $q.defer(),deferUpcoming = $q.defer(),deferDescription = $q.defer();
+                }, deferNowPlaying = $q.defer(),deferUpcoming = $q.defer();//deferDescription = $q.defer();
 
 
                  // Private Method
@@ -78,8 +78,11 @@
                  };
 
                  var movieDescription = function(movieId){
+                      var deferDescription = $q.defer();
+                      $http.get(ApiUrl.movieDescription + movieId,{params:{api_key:config.api_key}}).success(function(response){
+                          deferDescription.resolve(response);
 
-                      $http.get(ApiUrl.movieDescription + movieId,{params:{api_key:config.api_key}}).success(ResponseMovieDescription).error(Error);
+                      }).error(Error);
                       return deferDescription.promise;
 
                   };
@@ -99,11 +102,7 @@
                     deferNowPlaying.resolve(data);
                   }
 
-                  function ResponseMovieDescription(data){
 
-                      deferDescription.resolve(data);
-
-                  }
 
                 return {
 

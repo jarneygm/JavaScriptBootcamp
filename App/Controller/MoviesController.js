@@ -19,16 +19,18 @@
                             var self = this;
                             self.mostRate = {};
                             self.upComingMovies = [];
-                            self.nowPlayingMovies = {};
+                            self.detailMovie = {};
+                            self.nowPlayingMovies = [];
                             self.urlImag = '';
+                            self.ShowdetailMovie = false;
                             var rank = 0;
                             var movieId = null;
                              self.getListMovies  = function(){
 
                                  MovieDiscover.getUpcomingMovies().then(function(response){
-                                     self.upComingMovies = response.results;
 
-                                    getOutNullValue(self.upComingMovies);
+                                    self.upComingMovies = response.results;
+
                                     angular.forEach(self.upComingMovies,function(val,key){
 
                                             if(rank <= val.vote_average){
@@ -38,35 +40,45 @@
 
                                      });
 
-                                     console.log(self.upComingMovies);
                                      MovieDiscover.getMovieById(movieId).then(function(resp){
 
-                                         resp.poster_path = apiConfigPath.images.base_url + apiConfigPath.images.poster_sizes[4] + resp.poster_path;
+                                         resp.poster_path = apiConfigPath.images.base_url + apiConfigPath.images.poster_sizes[3] + resp.poster_path;
                                          self.mostRate = resp;
                                      });
                                      self.urlImag =  apiConfigPath.images.base_url + apiConfigPath.images.poster_sizes[1];
 
                                  });
 
-                                /* MovieDiscover.getNowPlaying().then(function(response){
-                                     self.nowPlayingMovies = response;
+                                 MovieDiscover.getNowPlaying().then(function(response){
 
-                                 });*/
+                                     self.nowPlayingMovies = response.results;
+
+                                 });
 
                              };
 
-                            function getOutNullValue(list){
 
-                                angular.forEach(list,function(val,key){
-                                    if(val.poster_path === null){
-                                        list.splice(list.indexOf(key),1);
-                                    }
+                            self.DetailMovie = function (Id) {
+
+                                MovieDiscover.getMovieById(Id).then(function(movieData){
+                                    movieData.poster_path = apiConfigPath.images.base_url + apiConfigPath.images.poster_sizes[3] + movieData.poster_path;
+                                    self.detailMovie = movieData;
+                                    console.log(self.detailMovie);
+                                    self.ShowdetailMovie = true;
 
                                 });
 
-                            }
+                            };
+
+                            self.goBack = function(){
+
+                                self.ShowdetailMovie = false;
+
+
+                            };
 
                             self.getListMovies();
+
 
 
 

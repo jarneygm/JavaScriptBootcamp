@@ -1,16 +1,16 @@
         <div class="container-fluid" ng-controller="LoginApiCtrl">
-            <div class="row-fluid">
+            <div class="row-fluid" ng-controller="MovieListCtrl as movLst">
                 <div class="col-sm-2">
 
                 </div><!--/span-->
-                <div class="col-sm-12">
+                <div class="col-sm-12" ng-show="!movLst.ShowdetailMovie" >
                     <div class="jumbotron">
                         <h1>Web Movies</h1>
                         <p>This is a web application starter template built with AngularJS with an MVC structure</p>
                     </div>
-                <div class="has-header dashboard" ng-controller="MovieListCtrl as movLst">
+                <div class="has-header dashboard" >
                     <div class="row banner no-padder" >
-                        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 no-padder" >
+                        <div class="col-lg-4 col-md-4 col-sm-3 col-xs-10 no-padder" >
                             <a href="#" class="thumbnail" >
                                 <img class="img-banner" ng-src="{{movLst.mostRate.poster_path}}"/>
                             </a>
@@ -24,21 +24,38 @@
                     </div>
 
                     <div class="row movies-content" >
-                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-10 movie-gadget" ng-repeat="movie in movLst.upComingMovies" ng-show="movie.poster_path != null ">
-
-
-
-                           <div class="row no-padder">
-                                <img class="img-gadget" ng-src="{{movLst.urlImag + movie.poster_path}}}"/>
-                            </div>
-                            <div class="row gadget-content no-padder">
-                                <label style="margin-left: 40px;">Average </label> <label style="margin-left:5px"> {{movie.vote_average}}</label>
-                            </div>
-
+                        <input  type="text" ng-model="serach.title" placeholder="search" class="search-model"/><br/>
+                        <div class="clearfix">
+                        <h3> Now Playing Movies</h3>
+                        <movie-widget ng-repeat="movie in movLst.nowPlayingMovies | limitTo :11 | filter:serach.title" ng-show="movie.poster_path != null " ></movie-widget>
+                        </div>
+                        <div class="clearfix">
+                        <h3> Upcoming Movies</h3>
+                        <movie-widget ng-repeat="movie in movLst.upComingMovies | limitTo :11 | filter:serach.title" ng-show="movie.poster_path != null " ></movie-widget>
                         </div>
                     </div>
                 </div>
                 </div><!--/span-->
+                <div ng-hide="!movLst.ShowdetailMovie" class="moviesDescription-content">
+                      <a href="javascript:void(0)" ng-click="movLst.goBack()" class="btn btn-info">Back</a>
+                      <div class="row banner no-padder" >
+                           <h3 class="title-movie">{{movLst.detailMovie.original_title}}</h3>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 no-padder" >
+                                <a href="#" class="thumbnail" >
+                                    <img class="img-banner" ng-src="{{movLst.urlImag + movLst.detailMovie.poster_path}}"/>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-info-banner">
+                                <a href="#">
+                                    <label>Average Raiting : {{movLst.detailMovie.vote_average}}/10/<ge</label>
+                                    <p class="movie-description">{{movLst.detailMovie.overview}}</p>
+                                </a>
+                            </div>
+                        </div>
+                      <pre>{{movLst.detailMovie}} </pre>
+
+
+                </div>
             </div><!--/row-->
 
         </div><!--/.fluid-container-->

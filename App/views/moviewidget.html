@@ -1,13 +1,9 @@
-<div class="row movies-content" ng-repeat="movie in movLst.upComingMovies">
-<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-gadget" >
+
+<div class="col-lg-2 col-md-3 col-sm-3 col-xs-10 movie-gadget" >
     <div class="row no-padder">
-        <img class="img-gadget"  ng-src="{{movLst.urlImag + movie.backdrop_path}}}" />
+       <a  ng-click="movLst.DetailMovie(movie.id)" href="javascript:void(0)"> <img class="img-gadget" ng-src="{{movLst.urlImag + movie.poster_path}}}" /></a>
     </div>
     <div class="row gadget-content no-padder">
-        {{movie.title}}}
+        <!-- <label style="margin-left: 40px;">Average </label> --><label style="margin-top:10px"> {{movie.title}}</label>
     </div>
-    <div class="row gadget-link no-padder">
-        {{movie.release_date}}}
-    </div>
-</div>
 </div>
