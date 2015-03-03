@@ -45,7 +45,7 @@ ion-content {
 }
 
 .banner {
-    margin-top: 60px;
+    margin-top: 5px;;
     background-color: white;
 }
 
@@ -66,7 +66,9 @@ ion-content {
 }
 
 .movie-info-banner {
-    padding-top: 15px;
+    padding-top: 0px;
+    height: 250px;
+    overflow: hidden;
 }
 
 .movies-content {
@@ -127,4 +129,25 @@ ion-content {
 
     margin-top: 60px;
 
+}
+
+.title-detail{
+    text-align: left;
+    margin-left: 6px;
+    margin-top: 11px;
+    padding-top: 10px;
+    font-style: italic;
+
+}
+.title-info-movie{
+    border-bottom: solid 1px #ddd;
+    padding-bottom: 5px;
+}
+.img-banner-profile{
+    max-height: 115px;
+    width: 100%;
+}
+.info-banner-video{
+    height: auto;
+    margin-top: -30px;
 }

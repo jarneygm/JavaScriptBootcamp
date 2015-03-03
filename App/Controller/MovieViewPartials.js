@@ -29,7 +29,18 @@
 
         };
 
-    })
+    });
+
+    App.directive('movieDetail',function(){
+
+        return {
+
+            restrict :'E',
+            templateUrl:'App/views/moviedetail.html'
+
+        };
+
+    });
 
 
 })();

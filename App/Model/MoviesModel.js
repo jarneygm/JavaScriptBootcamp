@@ -17,7 +17,9 @@
                 discoverMovie: UrlBase.httpBaseApi + 'discover/movie',
                 upcomingMovies : UrlBase.httpBaseApi + 'movie/upcoming',
                 nowPlaying :UrlBase.httpBaseApi + 'movie/now_playing',
-                movieDescription: UrlBase.httpBaseApi + 'movie/'
+                movieDescription: UrlBase.httpBaseApi + 'movie/',
+                popularMovies :UrlBase.httpBaseApi + 'movie/popular'
+
             };
 
             var App = angular.module('Movies.Models',[]);
@@ -54,7 +56,9 @@
                         data:{},
                         errorMsg:''
 
-                }, deferNowPlaying = $q.defer(),deferUpcoming = $q.defer();//deferDescription = $q.defer();
+                },
+                deferNowPlaying = $q.defer(),
+                deferUpcoming = $q.defer();
 
 
                  // Private Method
@@ -86,6 +90,38 @@
                       return deferDescription.promise;
 
                   };
+
+                  var movieCast = function(movieId){
+                      var deferMovieCast = $q.defer();
+                      $http.get(ApiUrl.movieDescription + movieId + '/credits',{params:{api_key:config.api_key}}).success(function(response){
+                          deferMovieCast.resolve(response);
+
+                      }).error(Error);
+                      return deferMovieCast.promise;
+
+                  };
+
+                 var movieVideos = function(movieId){
+
+                     var deferMovieVideo = $q.defer();
+                     $http.get(ApiUrl.movieDescription + movieId + '/videos',{params:{api_key:config.api_key}}).success(function(response){
+                         deferMovieVideo.resolve(response);
+
+                     }).error(Error);
+                     return deferMovieVideo.promise;
+                 };
+
+                 var popularMovies = function(){
+
+                     var deferPopularMovie = $q.defer();
+                     $http.get(ApiUrl.popularMovies,{params:{api_key:config.api_key}}).success(function(response){
+                         deferPopularMovie.resolve(response);
+
+                     }).error(Error);
+                     return deferPopularMovie.promise;
+
+                 };
+
                  function Error(data){
 
                      deferUpcoming.reject(data);
@@ -109,7 +145,10 @@
                     getMovieList: discoverMovie,
                     getUpcomingMovies:upComingMovies,
                     getNowPlaying : nowPlaying,
-                    getMovieById :movieDescription
+                    getMovieById :movieDescription,
+                    getMovieCast:movieCast,
+                    getMovieVideos :movieVideos,
+                    getPopularMovies :popularMovies
 
                 };
 
