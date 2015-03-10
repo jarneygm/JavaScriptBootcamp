@@ -42,70 +42,96 @@
                     <div class="row movies-content">
                         <input type="text" placeholder="search" class="search-model" /><br />
                         <div class="clearfix" id="popularMovies">
-                            <h3 class="title-detail title-info-movi">Popular Movies</h3>
+                            <h1 class="title-detail title-info-movi">Popular Movies</h1>
                         </div>
                         <div id="nowPlayingMovies" class="clearfix">
-                            <h3 class="title-detail title-info-movi"> Now Playing Movies</h3>
+                            <h1 class="title-detail title-info-movi">Now Playing Movies</h1>
+                        </div>
+                        <div id="upcomingMovies" class="clearfix">
+                            <h1 class="title-detail title-info-movi">Upcoming Movies</h1>
                         </div>
                     </div>
                 </div>
-            </div><!--/span-->
-            <!--<movie-detail ng-hide="!movLst.ShowdetailMovie"></movie-detail>-->
-            <!--<div class="moviesDescription-content" style="display:none">
-                <a href="javascript:void(0)" ng-click="movLst.goBack()" class="btn-link" style="margin-left: -180px;text-decoration: none"><---</a>
-                <div class="row banner no-padder">
-                    <h3 class="title-detail">{{movLst.detailMovie.original_title}} ({{movLst.detailMovie.release_date | date:'yyyy'}})</h3>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 no-padder" style="padding-top: 30px;">
-                        <a href="#" class="thumbnail">
-                            <img class="img-banner" ng-src="{{movLst.urlImag + movLst.detailMovie.poster_path}}" />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-info-banner">
-                        <h5 class="title-info-movie">Movie Ifo</h5>
-                        <div class="clearfix"><label>Average Raiting : {{movLst.detailMovie.vote_average}}/10</label></div>
-                        <div class="clearfix"><label>Popularity  :{{movLst.detailMovie.popularity |number:0 }}%</label></div>
-                        <div class="clearfix"> <label>Runtime    :{{movLst.detailMovie.runtime}} min</label></div>
-                        <div class="clearfix"> <label>Box Office :{{movLst.detailMovie.revenue | currency}}</label></div>
-                        <div class="clearfix"> <label>In Theaters :{{movLst.detailMovie.release_date | date:'mediumDate'}}</label></div>
-                        <div class="clearfix"> <label>Status :{{movLst.detailMovie.status}}</label></div>
-                        <div class="clearfix">
-                            <label>Genre :</label>
-                            <label ng-repeat="genrer in movLst.detailMovie.genres" style="margin-right: 3px;">
-                                <span> {{genrer.name}} ,</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-info-banner">
-                        <h5 class="title-info-movie">Overview</h5>
-                        <div class="clearfix"> <label>{{movLst.detailMovie.overview}}</label></div>
-                    </div>
-                    <div class="col-lg-8 col-md-4 col-sm-6 col-xs-12 movie-info-banner">
-                        <h5 class="title-info-movie">Movie Cast</h5>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 no-padder" ng-repeat="cast in movLst.movieCast.cast | limitTo : 6" ng-show="cast.profile_path != null ">
-                            <a href="#">
-                                <img class="img-banner-profile" ng-src="{{movLst.photo_path + cast.profile_path}}" />
-
-                            </a>
-                            <span> {{cast.name}}</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 info-banner-video">
-                        <h5 class="title-info-movie">Video Clips</h5>
-                        <div class="col-lg-5 col-md-5 col-sm-8 col-xs-12 no-padder-video" ng-repeat="video in movLst.movieVideo | limitTo : 2" style="padding-left: 0;">
-                            <iframe width="420" height="315" ng-src="{{movLst.VideoUrl(video.key)| trustedUrl}}"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
-
+            </div>
         </div>
+    </div>
 
+    <!-- Modal details -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Movie Details</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="moviesDescription-content">
+                        <div class="row banner no-padder">
+                            <h3 class="title-detail">{{movLst.detailMovie.original_title}} ({{movLst.detailMovie.release_date | date:'yyyy'}})</h3>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 no-padder" style="padding-top: 30px;">
+                                <a href="#" class="thumbnail">
+                                    <img class="img-banner" ng-src="{{movLst.urlImag + movLst.detailMovie.poster_path}}" />
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-info-banner">
+                                <h5 class="title-info-movie">Movie Ifo</h5>
+                                <div class="clearfix">
+                                    <label>Average Raiting : {{movLst.detailMovie.vote_average}}/10</label></div>
+                                <div class="clearfix">
+                                    <label>Popularity  :{{movLst.detailMovie.popularity |number:0 }}%</label></div>
+                                <div class="clearfix">
+                                    <label>Runtime    :{{movLst.detailMovie.runtime}} min</label></div>
+                                <div class="clearfix">
+                                    <label>Box Office :{{movLst.detailMovie.revenue | currency}}</label></div>
+                                <div class="clearfix">
+                                    <label>In Theaters :{{movLst.detailMovie.release_date | date:'mediumDate'}}</label></div>
+                                <div class="clearfix">
+                                    <label>Status :{{movLst.detailMovie.status}}</label></div>
+                                <div class="clearfix">
+                                    <label>Genre :</label>
+                                    <label ng-repeat="genrer in movLst.detailMovie.genres" style="margin-right: 3px;">
+                                        <span>{{genrer.name}} ,</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 movie-info-banner">
+                                <h5 class="title-info-movie">Overview</h5>
+                                <div class="clearfix">
+                                    <label>{{movLst.detailMovie.overview}}</label></div>
+                            </div>
+                            <div class="col-lg-8 col-md-4 col-sm-6 col-xs-12 movie-info-banner">
+                                <h5 class="title-info-movie">Movie Cast</h5>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 no-padder" ng-repeat="cast in movLst.movieCast.cast | limitTo : 6" ng-show="cast.profile_path != null ">
+                                    <a href="#">
+                                        <img class="img-banner-profile" ng-src="{{movLst.photo_path + cast.profile_path}}" />
+
+                                    </a>
+                                    <span>{{cast.name}}</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 info-banner-video">
+                                <h5 class="title-info-movie">Video Clips</h5>
+                                <div class="col-lg-5 col-md-5 col-sm-8 col-xs-12 no-padder-video" ng-repeat="video in movLst.movieVideo | limitTo : 2" style="padding-left: 0;">
+                                    <iframe width="420" height="315" ng-src="{{movLst.VideoUrl(video.key)| trustedUrl}}"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Getting scripts from CDNs -->
     <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>-->
+    <script src='js/settings.js'></script>
+    <script src='js/Movie.js'></script>
     <script src='js/app.js'></script>
 </body>
 </html>
