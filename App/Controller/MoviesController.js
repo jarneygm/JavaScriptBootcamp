@@ -1,111 +1,93 @@
-            (function () {
+(function () {
+    var apiConfigPath = {};
+    var App = angular.module("Movies.Controller", []);
 
-                    var apiConfigPath = {};
+    App.filter('trustedUrl', ['$sce', function ($sce) {
 
+        return function (url) {
+            return $sce.trustAsResourceUrl(url);
+        };
+    }]);
 
-                    var App = angular.module("Movies.Controller",[]);
+    App.controller('LoginApiCtrl', ['ConfigApiService', function (ConfigApiService) {
+        ConfigApiService.getConfigPath().then(function (data) {
 
-                        App.filter('trustedUrl',['$sce',function($sce) {
+            if (data.isValid)
+                apiConfigPath = data.data;
+        });
 
-                            return function(url){
-                                return $sce.trustAsResourceUrl(url);
-                            };
-                        }]);
+    }]);
 
-                        App.controller('LoginApiCtrl',['ConfigApiService',function(ConfigApiService){
-                             ConfigApiService.getConfigPath().then(function(data){
+    App.controller('MovieListCtrl', ['$scope', 'MovieDiscover', function ($scope, MovieDiscover) {
 
-                                 if(data.isValid)
-                                    apiConfigPath = data.data;
-                            });
+        var self = this;
+        self.mostRate = {},
+        self.upComingMovies = [],
+        self.detailMovie = {},
+        self.nowPlayingMovies = [],
+        self.popularMovie = [],
+        self.movieCast = [],
+        self.movieVideo = [],
+        self.urlImag = '',
+        self.ShowdetailMovie = false;
 
-                         }]);
+        self.getListMovies = function () {
 
-                        App.controller('MovieListCtrl',['$scope','MovieDiscover',function($scope,MovieDiscover){
+            MovieDiscover.getUpcomingMovies().then(function (response) {
 
-                            var self = this;
-                            self.mostRate = {},
-                            self.upComingMovies = [],
-                            self.detailMovie = {},
-                            self.nowPlayingMovies = [],
-                            self.popularMovie = [],
-                            self.movieCast = [],
-                            self.movieVideo = [],
-                            self.urlImag = '',
-                            self.ShowdetailMovie = false;
+                self.upComingMovies = response.results;
 
-                            self.getListMovies  = function(){
+                self.urlImag = apiConfigPath.images.base_url + apiConfigPath.images.poster_sizes[1];
 
-                                 MovieDiscover.getUpcomingMovies().then(function(response){
+            });
 
-                                    self.upComingMovies = response.results;
+            MovieDiscover.getNowPlaying().then(function (response) {
 
-                                     self.urlImag =  apiConfigPath.images.base_url + apiConfigPath.images.poster_sizes[1];
+                self.nowPlayingMovies = response.results;
 
-                                 });
+            });
 
-                                 MovieDiscover.getNowPlaying().then(function(response){
+            MovieDiscover.getPopularMovies().then(function (response) {
 
-                                     self.nowPlayingMovies = response.results;
+                self.popularMovie = response.results;
 
-                                 });
+            });
 
-                                 MovieDiscover.getPopularMovies().then(function(response){
+        };
 
-                                      self.popularMovie = response.results;
+        self.DetailMovie = function (Id) {
 
-                                 });
+            MovieDiscover.getMovieById(Id).then(function (movieData) {
 
-                             };
+                movieData.poster_path = apiConfigPath.images.base_url + apiConfigPath.images.poster_sizes[3] + movieData.poster_path;
+                self.detailMovie = movieData;
+                self.ShowdetailMovie = true;
 
+            });
+            MovieDiscover.getMovieCast(Id).then(function (castData) {
 
-                            self.DetailMovie = function (Id) {
+                self.photo_path = apiConfigPath.images.base_url + apiConfigPath.images.profile_sizes[2];
+                self.movieCast = castData;
 
-                                MovieDiscover.getMovieById(Id).then(function(movieData){
+            });
 
-                                    movieData.poster_path = apiConfigPath.images.base_url + apiConfigPath.images.poster_sizes[3] + movieData.poster_path;
-                                    self.detailMovie = movieData;
-                                    self.ShowdetailMovie = true;
+            MovieDiscover.getMovieVideos(Id).then(function (videoData) {
 
-                                });
-                                MovieDiscover.getMovieCast(Id).then(function(castData){
+                self.movieVideo = videoData.results;
+            });
 
-                                      self.photo_path = apiConfigPath.images.base_url + apiConfigPath.images.profile_sizes[2];
-                                      self.movieCast = castData;
+        };
 
-                                });
+        self.goBack = function () {
 
-                                MovieDiscover.getMovieVideos(Id).then(function(videoData){
+            self.ShowdetailMovie = false;
+        };
 
-                                    self.movieVideo = videoData.results;
-                                });
+        self.VideoUrl = function (key) {
 
-                            };
+            return "http://www.youtube.com/embed/" + key;
+        };
 
-                            self.goBack = function(){
-
-                                self.ShowdetailMovie = false;
-                            };
-
-                            self.VideoUrl = function(key){
-
-                                return "http://www.youtube.com/embed/" +key;
-                            };
-
-                            self.getListMovies();
-
-
-
-
-
-
-
-                        }]);
-
-
-
-
-
-
-
-            })();
+        self.getListMovies();
+    }]);
+})();
