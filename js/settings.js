@@ -17,4 +17,5 @@
     movieApi.upcomingMovies = movieApi.theMovieDBUri + "movie/upcoming";
     movieApi.nowPlaying = movieApi.theMovieDBUri + "movie/now_playing";
     movieApi.popularMovies = movieApi.theMovieDBUri + "movie/popular";
+    movieApi.description = movieApi.theMovieDBUri + "movie/";
 })();

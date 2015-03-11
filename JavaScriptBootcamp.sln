@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "JavaScriptBootcamp", "http://localhost:60286", "{A6FC268A-B2C2-422D-86A6-08B8DE538A9A}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
