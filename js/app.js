@@ -97,9 +97,19 @@
     //    }
     //};
 
-    $(".popup").click(function (event) {
+    $("body").on("click", ".popup", function (event) {
         event.preventDefault();
-        alert($(this).data("movieid"));
-        $("#myModal").show();
+        var movieId = $(this).data("movieid");
+        $.get(movieApi.description + movieId,
+            { "api_key": movieApi.apiKey },
+            function (dataFromServer) {
+                var movieDetails = new MovieDetails(dataFromServer, movieApi.configuration);
+                $(".modal-body").append(movieDetails.template);
+            });
+        $("#myModal").modal('show');
     })
+
+    $("#myModal").on("hide.bs.modal", function () {
+        $(".modal-body").empty();
+    });
 });
